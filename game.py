@@ -31,4 +31,11 @@ def place_enemies(board, level):
     :param: board (list): A 5x5 game board represented as a list of lists.
             level (int): The current level of the game, affecting the number of enemies.
     :return: int: The number of enemies placed on the board.
+
+    >>> board = initialize_board()
+    >>> num_enemies = place_enemies(board, 1)
+    >>> 1 <= num_enemies <= 5
+    True
+    >>> any(cell is not None for row in board for cell in row)
+    True
     """
