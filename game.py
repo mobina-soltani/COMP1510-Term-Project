@@ -1,4 +1,4 @@
-
+import random
 
 def initialize_board():
     """
