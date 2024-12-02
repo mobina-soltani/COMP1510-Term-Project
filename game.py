@@ -6,5 +6,11 @@ def initialize_board():
     Cells are initially empty.
 
     Return: dict: A dictionary representing the board where keys are (x, y) tuples and values are descriptions as strings.
+
+    >>> board = initialize_board()
+    >>> len(board)
+    25
+    >>> board[(4, 4)]
+    'empty'
     """
     pass
