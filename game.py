@@ -89,5 +89,20 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
     ...     encounter_enemy("Panther", 3, 3)
     (0, False)
     """
+    print(Fore.RED + f"\n⚔️ You have encountered a {enemy_name}!")
+    while enemy_health > 0:
+        print(Fore.YELLOW + f"The {enemy_name}'s health: {enemy_health}")
+        action = input(Fore.CYAN + "Type 'kill' to attack: ").lower()
+        if action == "kill":
+            enemy_health -= 1
+            print(Fore.GREEN + "🔥 You attacked the enemy!")
+        else:
+            print(Fore.RED + "⚠️ You hesitated, and the enemy attacks you!")
+            player_health -= 1
+        if player_health <= 0:
+            print(Fore.RED + "💀 You have been defeated by the enemy!")
+            return player_health, False
+    print(Fore.GREEN + f"\n🎉 You defeated the {enemy_name}!")
+    return player_health, True
 
 
