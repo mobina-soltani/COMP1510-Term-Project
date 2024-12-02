@@ -1,5 +1,6 @@
 import random
 
+
 def initialize_board():
     """
     Initialize the game board as a dictionary.
@@ -60,7 +61,7 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
     Handles the player's interaction with an enemy during an encounter.
 
     The player must type 'kill' to attack the enemy and reduce its health.
-    If the player hesitates (does not type 'kill'), they get damage.
+    If the player hesitates (not type 'kill'), they get damage.
     The encounter ends when either the player or the enemy's health gets 0.
 
     :param:enemy_name (str): The name of the enemy encountered.
@@ -71,3 +72,5 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
             - int: Remaining health of the player.
             - bool: `True` if the player defeats the enemy, `False` otherwise.
     """
+
+
