@@ -72,6 +72,21 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
     :return:tuple:
             - int: Remaining health of the player.
             - bool: `True` if the player defeats the enemy, `False` otherwise.
+
+    >>> inputs = iter(["kill", "kill", "kill"])
+    >>> with patch('builtins.input', lambda _: next(inputs)):
+    ...     encounter_enemy("Tiger", 5, 3)
+    (5, True)
+
+    >>> inputs = iter(["hesitate", "kill", "kill", "kill"])
+    >>> with patch('builtins.input', lambda _: next(inputs)):
+    ...     encounter_enemy("Snake", 5, 3)
+    (4, True)
+
+    >>> inputs = iter(["hesitate", "hesitate", "hesitate", "kill", "kill"])
+    >>> with patch('builtins.input', lambda _: next(inputs)):
+    ...     encounter_enemy("Panther", 3, 3)
+    (0, False)
     """
 
 
