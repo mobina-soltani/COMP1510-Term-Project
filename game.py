@@ -9,8 +9,10 @@ def initialize_board():
 
     >>> board = initialize_board()
     >>> len(board)
-    25
-    >>> board[(4, 4)]
-    'empty'
+    5
+    >>> all(len(row) == 5 for row in board)
+    True
+    >>> all(cell is None for row in board for cell in row)
+    True
     """
     pass
