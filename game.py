@@ -1,5 +1,6 @@
 import random
 from unittest.mock import patch
+from colorama import Fore, Style, init
 
 
 def initialize_board():
