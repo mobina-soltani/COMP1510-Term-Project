@@ -39,3 +39,17 @@ def place_enemies(board, level):
     >>> any(cell is not None for row in board for cell in row)
     True
     """
+    enemies = ["Tiger", "Snake", "Panther", "Crocodile", "Jaguar"]
+    num_enemies = int(5 * (1 + (level - 1) * 0.5))
+    enemy_count = 0
+    while enemy_count < num_enemies:
+        x, y = random.randint(0, 4), random.randint(0, 4)
+        if board[x][y] is None and (x, y) not in [(0, 0), (4, 3), (3, 4), (4, 4)]:
+            board[x][y] = random.choice(enemies)
+            enemy_count += 1
+
+    # Place the boss at fixed locations for the final level
+    if level == 4:
+        board[4][3] = "Boss"
+        board[3][4] = "Boss"
+    return num_enemies
