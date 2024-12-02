@@ -53,3 +53,21 @@ def place_enemies(board, level):
         board[4][3] = "Boss"
         board[3][4] = "Boss"
     return num_enemies
+
+
+def encounter_enemy(enemy_name, player_health, enemy_health):
+    """
+    Handles the player's interaction with an enemy during an encounter.
+
+    The player must type 'kill' to attack the enemy and reduce its health.
+    If the player hesitates (does not type 'kill'), they get damage.
+    The encounter ends when either the player or the enemy's health gets 0.
+
+    :param:enemy_name (str): The name of the enemy encountered.
+            player_health (int): The player's current health points.
+            enemy_health (int): The enemy's current health points.
+
+    :return:tuple:
+            - int: Remaining health of the player.
+            - bool: `True` if the player defeats the enemy, `False` otherwise.
+    """
