@@ -15,4 +15,4 @@ def initialize_board():
     >>> all(cell is None for row in board for cell in row)
     True
     """
-    pass
+    return [[None for _ in range(5)] for _ in range(5)]
