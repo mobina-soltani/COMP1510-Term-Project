@@ -113,4 +113,16 @@ def boss_battle(player_health):
 
     :param:player_health (int): Player's current health.
     :return:tuple: Remaining player health and victory status (True if the player wins, False if defeated).
+
+    >>> random.seed(0)
+    >>> inputs = iter(["kill", "kill", "kill", "heal", "kill", "kill", "kill", "kill", "kill", "kill"])
+    >>> with patch('builtins.input', lambda _: next(inputs)):
+    ...     boss_battle(20)
+    (15, True)
+
+    >>> random.seed(0)
+    >>> inputs = iter(["hesitate", "hesitate", "kill", "kill", "hesitate", "kill"])
+    >>> with patch('builtins.input', lambda _: next(inputs)):
+    ...     boss_battle(10)
+    (0, False)
     """
