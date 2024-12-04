@@ -165,3 +165,12 @@ def show_instructions():
    print("\n--- Movement ---")
    print("Move using W (up), A (left), S (down), or D (right).")
    print(Fore.BLUE + Style.BRIGHT + "=" * 40)
+
+
+def game():
+    #here comes the big wave
+    return
+
+
+if __name__ == "__main__":
+    game()
