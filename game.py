@@ -126,3 +126,22 @@ def boss_battle(player_health):
     ...     boss_battle(10)
     (0, False)
     """
+    boss_health = 10
+    print(Fore.MAGENTA + "\n🐉 You have encountered the Boss! A fierce Dragon awaits.")
+    while player_health > 0 and boss_health > 0:
+        print(Fore.RED + f"Boss's Health: {boss_health}")
+        print(Fore.BLUE + f"Your Health: {player_health}")
+        action = input(Fore.CYAN + "Type 'kill' to attack the boss or 'heal' to heal: ").lower()
+        if action == "kill":
+            boss_health -= 1
+            print(Fore.GREEN + "🔥 You attacked the boss!")
+        elif action == "heal":
+            heal = random.randint(2, 5)
+            player_health += heal
+            print(Fore.GREEN + f"💊 You healed yourself for {heal} HP.")
+        else:
+            print(Fore.RED + "⚠️ You hesitated, and the boss strikes!")
+        boss_damage = random.randint(2, 4)
+        player_health -= boss_damage
+        print(Fore.RED + f"💥 The boss attacked you for {boss_damage} damage!")
+    return player_health, player_health > 0
