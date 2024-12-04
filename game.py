@@ -105,4 +105,12 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
     print(Fore.GREEN + f"\n🎉 You defeated the {enemy_name}!")
     return player_health, True
 
+def boss_battle(player_health):
+    """
+    Simulates the boss battle after the player entered the coordinates, (3,4) or (4,3) at level 4.
 
+    The player must enter heal to add up health points and kill to damage the boss.
+
+    :param:player_health (int): Player's current health.
+    :return:tuple: Remaining player health and victory status (True if the player wins, False if defeated).
+    """
