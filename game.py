@@ -10,7 +10,7 @@ def initialize_board():
     The board represents a 5x5 grid where each coordinate (x, y) is a key, and the value is the cell's description.
     Cells are initially empty.
 
-    Return: dict: A dictionary representing the board where keys are (x, y) tuples and values are descriptions as strings.
+    :return: dict: A dictionary representing the board where keys are (x, y) tuples and values are descriptions as strings.
 
     >>> board = initialize_board()
     >>> len(board)
@@ -105,6 +105,7 @@ def encounter_enemy(enemy_name, player_health, enemy_health):
     print(Fore.GREEN + f"\n🎉 You defeated the {enemy_name}!")
     return player_health, True
 
+
 def boss_battle(player_health):
     """
     Simulates the boss battle after the player entered the coordinates, (3,4) or (4,3) at level 4.
@@ -145,3 +146,9 @@ def boss_battle(player_health):
         player_health -= boss_damage
         print(Fore.RED + f"💥 The boss attacked you for {boss_damage} damage!")
     return player_health, player_health > 0
+
+
+def show_instructions():
+   """
+   Explains the game instructions and mechanics to the player.
+   """
