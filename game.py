@@ -152,3 +152,16 @@ def show_instructions():
    """
    Explains the game instructions and mechanics to the player.
    """
+   print(Fore.BLUE + Style.BRIGHT + "\n" + "=" * 40)
+   print(Fore.YELLOW + Style.BRIGHT + "🌲 Welcome to the Mysterious Forest 🌲")
+   print(Fore.BLUE + Style.BRIGHT + "=" * 40)
+   print(Fore.CYAN + "\n--- Instructions ---")
+   print("1. Your goal is to move from (0,0) to (4,4) while surviving enemies and battles.")
+   print("2. You start the game with 5 health points (HP).")
+   print("3. In each level, enemies have health points equal to level + 2.")
+   print("4. To defeat an enemy, type 'kill' 3 times, reducing their health by 1 each time.")
+   print("5. In the final level, you must defeat a Boss with 10 HP located at (4,3) and (3,4).")
+   print("6. Once you defeat the Boss, you can move to (4,4) to win the game!")
+   print("\n--- Movement ---")
+   print("Move using W (up), A (left), S (down), or D (right).")
+   print(Fore.BLUE + Style.BRIGHT + "=" * 40)
