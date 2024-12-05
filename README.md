@@ -1,3 +1,48 @@
+# 🌲 Mysterious Forest Game 🌲
+
+Welcome to **Mysterious Forest**, a thrilling text-based adventure game where you navigate through a dangerous forest, fight exotic enemies, and face off against a mighty Boss! Your ultimate goal is to survive and reach the endpoint at **(4,4)**.
+
+---
+
+## 📋 Game Overview
+
+- **Starting Position**: (0, 0) on a 5x5 grid.
+- **Goal**: Navigate to **(4,4)** while battling enemies and surviving until the end.
+- **Levels**: The game has **4 levels**, each increasing in difficulty:
+  - **Enemies**: Health points increase with each level.
+  - **Boss**: A **Dragon** with **10 HP** awaits in the final level.
+- **Victory Condition**: Defeat the Boss and move to **(4,4)**.
+
+---
+
+## 🎮 How to Play
+
+### **Instructions**
+1. You start with **5 Health Points (HP)**.
+2. At each level, enemies will spawn randomly across the board.
+
+### **Movement**
+Use the following keys to move:
+- **W**: Move Up
+- **A**: Move Left
+- **S**: Move Down
+- **D**: Move Right
+
+### **Enemy Encounters**
+- **Combat**: Type `kill` to attack the enemy.
+  - Each `kill` reduces the enemy’s health by 1.
+- **Hesitation**: Typing anything else will damage your health.
+
+### **Boss Battle**
+- Use `kill` to attack the Boss.
+- Use `heal` to recover health.
+- Beware! The Boss will retaliate with random damage.
+
+---
+
+Good luck, adventurer! Survive the **Mysterious Forest** and claim your victory! 🌟
+
+
 | **Element**                | **Description**                                                                                                       | **Requirement Met**                                                                                                     |
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | **Game Board Initialization** | Creates a 5x5 grid (list of lists) with empty cells, representing the game world.                                     | Implemented in `initialize_board`. Creates a dynamic board with proper dimensions, validated with doctests.              |
