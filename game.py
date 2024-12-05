@@ -1,4 +1,5 @@
 import random
+from itertools import cycle
 from unittest.mock import patch
 from colorama import Fore, Style, init
 
@@ -44,9 +45,11 @@ def place_enemies(board: list, level: int) -> int:
     """
     enemies = ["Tiger", "Snake", "Panther", "Crocodile", "Jaguar"]
     num_enemies = int(5 * (1 + (level - 1) * 0.5))
+    enemy_positions = cycle([(0, 1), (1, 2), (2, 3), (3, 4)])  # Using itertools
     enemy_count = 0
+
     while enemy_count < num_enemies:
-        x, y = random.randint(0, 4), random.randint(0, 4)
+        x, y = next(enemy_positions) if enemy_count < 4 else (random.randint(0, 4), random.randint(0, 4))
         if board[x][y] is None and (x, y) not in [(0, 0), (4, 3), (3, 4), (4, 4)]:
             board[x][y] = random.choice(enemies)
             enemy_count += 1
