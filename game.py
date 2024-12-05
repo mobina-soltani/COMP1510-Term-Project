@@ -145,7 +145,7 @@ def boss_battle(player_health):
         boss_damage = random.randint(2, 4)
         player_health -= boss_damage
         print(Fore.RED + f"💥 The boss attacked you for {boss_damage} damage!")
-    return player_health, player_health > 0
+    return player_health > 0
 
 
 def show_instructions():
