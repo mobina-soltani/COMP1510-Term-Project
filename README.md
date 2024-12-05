@@ -1,18 +1,16 @@
-| Required Element                                                    |             File              | Line Number |
-|:--------------------------------------------------------------------|:-----------------------------:|------------:|
-| a) Use of immutable data structures like tuples                     |     [game.py](./game.py)      |          #1 |
-| b) Use of mutable data structures like lists and dictionaries       |     [game.py](./game.py)      |         #29 |
-| c) Thoughtful use of exceptions and exception handling              |     [game.py](./game.py)      |        #155 |
-| d) Minimized scope and lifetime of all variables and objects        |     [game.py](./game.py)      |        #173 |
-| e) Decomposition of your idea into small functions                  |     [game.py](./game.py)      |         #11 |
-| f) Simple flat code that is easy to understand                      |     [game.py](./game.py)      |  #183, #344 |
-| g) Comprehensions work through correct use of one or more list/dicts |     [game.py](./game.py)      |         #29 |
-| h) Selection using if-statements                                    |     [game.py](./game.py)      |  #120, #321 |
-| i) Repetition using the for-loop                                    |     [game.py](./game.py)      |  #185, #195 |
-| j) Use of the membership operator where it makes sense              |     [game.py](./game.py)      |        #139 |
-| k) Appropriate use of the range function                            |     [game.py](./game.py)      |         #29 |
-| l) Use of one or more functions from itertools                      |     [game.py](./game.py)      |          NA |
-| m) The random module                                                |     [game.py](./game.py)      |        #179 |
-| n) Function annotations                                             |     [game.py](./game.py)      |     #6, #26 |
-| o) Doctests and/or unit tests for every single function             |        See test folder        |          NA |
-| p) Output must be formatted using f-strings                         |     [game.py](./game.py)      |        #147 |
+| **Element**                | **Description**                                                                                                       | **Requirement Met**                                                                                                     |
+|----------------------------|-----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| **Game Board Initialization** | Creates a 5x5 grid (list of lists) with empty cells, representing the game world.                                     | Implemented in `initialize_board`. Creates a dynamic board with proper dimensions, validated with doctests.              |
+| **Random Enemy Placement**  | Distributes enemies on the game board randomly, ensuring no overlap and skipping certain fixed positions.             | Implemented in `place_enemies`. Ensures the number of enemies scales with levels and avoids key positions like (0, 0).   |
+| **Enemy Encounter Mechanic** | Simulates combat mechanics when the player meets an enemy.                                                           | Implemented in `encounter_enemy`. Handles enemy health reduction, player hesitation, and victory/loss conditions.        |
+| **Boss Battle Mechanic**    | Adds a special encounter with the Boss enemy in the final level.                                                     | Implemented in `boss_battle`. Includes healing mechanics and variable damage during combat with the Boss.                |
+| **Player Movement**         | Allows players to navigate the grid using W/A/S/D keys and validates movement within bounds.                         | Implemented in `game`. Updates player position and prevents invalid moves with feedback.                                 |
+| **Level Progression**       | Tracks levels, adds difficulty scaling (e.g., more enemies, stronger enemies), and restores player health per level. | Handled in `game`. Ensures level transitions after reaching the exit (4, 4).                                            |
+| **Victory Conditions**      | Checks for player victory by defeating the Boss and moving to the final position (4, 4).                              | Implemented in `game`. Ends the game with a congratulatory message upon meeting victory conditions.                      |
+| **Game Over Conditions**    | Ends the game when player health reaches 0 during any encounter or Boss battle.                                       | Handled in `encounter_enemy`, `boss_battle`, and `game`. Displays Game Over message if conditions are met.               |
+| **Instructions Display**    | Provides detailed gameplay instructions, including movement, combat mechanics, and victory objectives.               | Implemented in `show_instructions`. Displays a clear and user-friendly guide at the start of the game.                   |
+| **Dynamic Scaling**         | Adjusts difficulty through increased enemy health and count as levels progress.                                       | Implemented in `place_enemies` and `encounter_enemy`. Incorporates level-dependent scaling for more challenge.            |
+| **Input Handling**          | Processes player commands for movement, combat, and healing during gameplay.                                         | Handled in `game`, `encounter_enemy`, and `boss_battle`. Includes input validation and meaningful feedback.               |
+| **Testing and Validation**  | Ensures core functions behave as expected with examples and automated doctests.                                       | Implemented with doctests for key functions like `initialize_board`, `place_enemies`, and `encounter_enemy`.              |
+| **User Feedback**           | Provides color-coded messages for enemy encounters, health changes, and game events using `colorama`.                | Implemented with `colorama` styles. Enhances the user experience with visual cues for combat and progression.             |
+| **Replayability**           | Supports dynamic enemy placement and scaling for variability in gameplay.                                            | Achieved through `place_enemies` and randomization. Creates a unique game experience for each playthrough.                |
