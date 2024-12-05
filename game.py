@@ -168,8 +168,70 @@ def show_instructions():
 
 
 def game():
-    #here comes the big wave
-    return
+    show_instructions()
+    character_name = input(Fore.CYAN + "\nEnter your character's name: ")
+    print(Fore.GREEN + f"\nWelcome, {character_name}, to the Mysterious Forest!")
+    player_health = 5
+    level = 1
+
+    while level <= 4:
+        print(Fore.YELLOW + f"\n🌟 Level {level} begins! 🌟")
+        board = initialize_board()
+        place_enemies(board, level)
+        player_pos = (0, 0)
+
+        while player_pos != (4, 4) and player_health > 0:
+            print(Fore.CYAN + f"\nYour HP: {player_health}")
+            print(Fore.GREEN + f"Your current position: {player_pos}")
+            print("Move using W/A/S/D:")
+            move = input(Fore.CYAN + "> ").upper()
+
+            x, y = player_pos
+            if move == "W" and x > 0:
+                x -= 1
+            elif move == "A" and y > 0:
+                y -= 1
+            elif move == "S" and x < 4:
+                x += 1
+            elif move == "D" and y < 4:
+                y += 1
+            else:
+                print(Fore.RED + "❌ Invalid move! Try again.")
+                continue
+
+            player_pos = (x, y)
+
+            if board[x][y] is not None:
+                enemy_name = board[x][y]
+                if enemy_name == "Boss" and level == 4:
+                    if boss_battle(player_health):
+                        print(Fore.MAGENTA + "\n🎉 You have defeated the Boss!")
+                        board[x][y] = None  # Boss defeated
+                    else:
+                        player_health = 0
+                        break
+                else:
+                    enemy_health = level + 2  # Enemy health increases with level
+                    player_health, victory = encounter_enemy(enemy_name, player_health, enemy_health)
+                    if victory:
+                        board[x][y] = None  # Remove enemy after encounter
+                    else:
+                        break
+
+        if player_health <= 0:
+            print(Fore.RED + "\n💀 Game Over! Better luck next time.")
+            break
+
+        if player_pos == (4, 4):
+            if level == 4:
+                print(Fore.GREEN + "\n🎉 Congratulations! You have defeated the Dragon and completed the game!")
+            else:
+                print(Fore.YELLOW + f"\n🎉 Congratulations! You have completed Level {level}.")
+                level += 1
+                player_health += 3  # Restore some health after level up
+                print(Fore.GREEN + f"\n💊 Your health has been restored to {player_health}!")
+
+    print(Fore.BLUE + "\n🌲 Thanks for playing Mysterious Forest! 🌲")
 
 
 if __name__ == "__main__":
