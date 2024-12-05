@@ -3,7 +3,7 @@ from unittest.mock import patch
 from colorama import Fore, Style, init
 
 
-def initialize_board():
+def initialize_board() -> list:
     """
     Initialize the game board as a dictionary.
 
@@ -23,7 +23,7 @@ def initialize_board():
     return [[None for _ in range(5)] for _ in range(5)]
 
 
-def place_enemies(board, level):
+def place_enemies(board: list, level: int) -> int:
     """
     Places enemies randomly on the board based on the level.
 
